@@ -12,19 +12,43 @@
 
 OS = $(shell uname -s)
 
-PS := push_swap
+PSS := push_swap_smart
+PSQ := push_swap_qsort
+PSI := push_swap_insert
+PSM := push_swap_merge
 CH := checker
 CC := gcc -g -Wall -Wextra -Werror
 LIBD := libft/
 LIB := $(LIBD)libft.a
-PSC :=	blocks\
+PSSC :=	blocks\
 		error\
 		finder\
 		ft_checker2\
 		ft_listi\
-		ft_push_swap\
+		ft_push_swap_smart\
 		funcsh\
 		smart_sort\
+
+PSQC :=	error\
+		finder\
+		ft_listi\
+		ft_push_swap_qsort\
+		quick_sort\
+		funcsh\
+
+PSIC :=	error\
+		finder\
+		ft_listi\
+		ft_push_swap_insert\
+		insert_sort\
+		funcsh\
+
+PSMC :=	error\
+		finder\
+		ft_listi\
+		ft_push_swap_merge\
+		merge_sort\
+		funcsh\
 
 CHC :=	finder\
 		ft_checker\
@@ -79,14 +103,29 @@ else ifeq ($(OS), Darwin)
 
 endif
 
-PSO := $(addprefix $(SRCO), $(addsuffix .o, $(PSC)))
+PSSO := $(addprefix $(SRCO), $(addsuffix .o, $(PSSC)))
+PSQO := $(addprefix $(SRCO), $(addsuffix .o, $(PSQC)))
+PSIO := $(addprefix $(SRCO), $(addsuffix .o, $(PSIC)))
+PSMO := $(addprefix $(SRCO), $(addsuffix .o, $(PSMC)))
 CHO := $(addprefix $(SRCO), $(addsuffix .o, $(CHC)))
 
-all:		$(SRCO) $(LIB) $(PS) $(CH)
+all:		$(SRCO) $(LIB) $(PSS) $(PSQ) $(PSI) $(PSM) $(CH)
 
-$(PS):	$(PSO) $(LIB)
-	@$(CC) $^ $(INC) -o $(PS)
-	@echo $(PS) "completed"
+$(PSS):	$(PSSO) $(LIB)
+	@$(CC) $^ $(INC) -o $(PSS)
+	@echo $(PSS) "completed"
+
+$(PSQ):	$(PSQO) $(LIB)
+	@$(CC) $^ $(INC) -o $(PSQ)
+	@echo $(PSQ) "completed"
+
+$(PSI):	$(PSIO) $(LIB)
+	@$(CC) $^ $(INC) -o $(PSI)
+	@echo $(PSI) "completed"
+
+$(PSM):	$(PSMO) $(LIB)
+	@$(CC) $^ $(INC) -o $(PSM)
+	@echo $(PSM) "completed"
 
 $(CH):	$(CHO) $(LIB)
 	@$(CC) $^ $(INC) $(SDL_INCS) $(FRAMEWORKS) -o $(CH)
@@ -115,8 +154,8 @@ clean:
 
 fclean:		clean
 	@$(MAKE) -sC $(LIBD) fclean
-	@rm -f $(PS) $(CH)
-	@echo $(PS)" and "$(CH)" files deleted"
+	@rm -f $(PSS) $(PSQ) $(PSI) $(PSM) $(CH)
+	@echo $(PSS) $(PSQ) $(PSI) $(PSM)" and "$(CH)" files deleted"
 
 re:			fclean all
 

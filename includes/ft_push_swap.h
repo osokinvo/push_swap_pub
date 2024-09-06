@@ -56,6 +56,26 @@ int		flags(t_storage *storage, char *s);
 int		smart_sort(t_storage *st);
 
 /*
+**	insert_sort
+*/
+
+int		insert_sort(t_storage *st);
+
+/*
+**	merge_sort
+*/
+
+int		merge_sort(t_storage *st);
+
+/*
+**	quick_sort
+*/
+
+int		quick_sort(t_storage *st);
+void	to_b(t_storage *st, int k, int sort);
+void	to_a(t_storage *st, int k);
+
+/*
 **	finder
 */
 

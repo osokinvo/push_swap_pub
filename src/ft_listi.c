@@ -26,6 +26,14 @@ t_storage	*ft_create_storage(void)
 	result->top_b = NULL;
 	result->fd = 0;
 	result->flags = 1;
+	result->block = 0;
+	result->ta = 0;
+	result->tb = 0;
+	result->tb_block = 0;
+	result->da = 0;
+	result->da_block = 0;
+	result->db = 0;
+	result->db_block = 0;
 	return (result);
 }
 
