@@ -35,22 +35,16 @@ static int	ft_check_list(t_storage *storage)
 
 int			main(int argc, char **argv)
 {
-	int			n;
-	char		*s;
 	t_storage	*storage;
 
 	if (argc > 1)
 	{
 		if (!(storage = ft_create_storage()))
 			return (ft_error_check(NULL));
-		argc--;
-		while (argc > 0)
+		while (--argc > 0)
 		{
-			n = ft_atoi1(argv[argc], &s, 1);
-			if (*s != '\0' ||
-			!(storage->top_a = ft_create_listi(n, storage->top_a)))
-				return (ft_error_check(storage));
-			argc--;
+			if (ft_read_arg(&argc, argv, 0, storage))
+				return (EXIT_FAILURE);
 		}
 		return (ft_check_list(storage));
 	}

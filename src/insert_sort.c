@@ -84,7 +84,7 @@ void	take_max(t_storage *st, t_listi *max)
 		while (st->top_b != max)
 		{
 			reverse_rotate(&(st->top_b), &(st->down_b), -1);
-			write(1, "rrb\n", 3);
+			write(1, "rrb\n", 4);
 		}
 	
 }

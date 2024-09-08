@@ -6,16 +6,16 @@ LIMIT=700
 FILE=problem_5
 SUM=0
 
-for i in {1..5000}
+for i in {1..1000}
 do
 		export ARG=`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`
-		if ./push_swap_qsort $ARG | ./checker $ARG | grep -q KO
+		if ./push_swap_merge $ARG | ./checker $ARG | grep -q KO
 		then
 			echo "Error!"
 			echo $ARG
 			break
 		fi
-		NUMBER="$(./push_swap $ARG | wc -l | sed 's/ //g')"
+		NUMBER="$(./push_swap_merge $ARG | wc -l | sed 's/ //g')"
 		if [ "$NUMBER" -gt "$LIMIT" ]
 			then
 			echo $NUMBER >> $FILE

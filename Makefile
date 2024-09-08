@@ -31,6 +31,7 @@ PSSC :=	blocks\
 
 PSQC :=	error\
 		finder\
+		ft_checker2\
 		ft_listi\
 		ft_push_swap_qsort\
 		quick_sort\
@@ -38,6 +39,7 @@ PSQC :=	error\
 
 PSIC :=	error\
 		finder\
+		ft_checker2\
 		ft_listi\
 		ft_push_swap_insert\
 		insert_sort\
@@ -45,6 +47,7 @@ PSIC :=	error\
 
 PSMC :=	error\
 		finder\
+		ft_checker2\
 		ft_listi\
 		ft_push_swap_merge\
 		merge_sort\
