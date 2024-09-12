@@ -22,7 +22,6 @@ typedef struct	s_listi
 	int				n;
 	int				pos;
 	int				p_pos;
-	// int				id_block;
 }				t_listi;
 
 typedef	struct	s_storage
@@ -35,14 +34,6 @@ typedef	struct	s_storage
 	int			flags;
 	int			len_a;
 	int			len_b;
-	// int			block;
-	// int			ta;
-	// int			tb;
-	// int			tb_block;
-	// int			da;
-	// int			da_block;
-	// int			db;
-	// int			db_block;
 }				t_storage;
 
 /*
